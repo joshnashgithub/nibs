@@ -8,6 +8,7 @@ var express = require('express'),
     sqlinit = require('./server/sqlinit'),
 
     // App modules
+    agenda = require('./server/agenda'),
     offers = require('./server/offers'),
     products = require('./server/products'),
     users = require('./server/users'),
@@ -45,6 +46,9 @@ app.post('/fblogin', facebook.login);
 
 app.get('/users/me', auth.validateToken, users.getProfile);
 app.put('/users/me', auth.validateToken, users.updateProfile);
+
+app.get('/agenda', auth.validateToken, agenda.getAll);
+app.get('/agenda/:id', auth.validateToken, agenda.getById);
 
 app.get('/offers', auth.validateToken, offers.getAll);
 app.get('/offers/:id', offers.getById);
