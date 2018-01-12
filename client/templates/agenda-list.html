@@ -1,0 +1,26 @@
+<ion-view title="Your Agenda" hide-back-button="true" class="card-bg">
+
+    <ion-nav-buttons side="left">
+        <button menu-toggle="left" class="button button-icon icon ion-navicon"></button>
+    </ion-nav-buttons>
+
+    <ion-content has-header="true" padding="true">
+
+        <ion-refresher
+                pulling-text="Pull to refresh..."
+                on-refresh="doRefresh()">
+        </ion-refresher>
+
+        <div ng-repeat="agenda in agenda" class="list card">
+                <div class="item">
+                    <h2>{{agenda.title}}</h2>
+                </div>
+
+                <div class="item item-body">
+                    <img ng-if="agenda.image"  ng-src="{{agenda.image}}">
+                      <p>{{agenda.description}}</p>
+                </div>
+
+        </div>
+    </ion-content>
+</ion-view>
