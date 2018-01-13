@@ -2,9 +2,7 @@ var db = require('./pghelper'),
     config = require('./config'),
     winston = require('winston');
 
-function findAll(limit) {
-    return db.query('SELECT salesforce.Tour_agenda_item__c.id as tour_agenda_id, salesforce.Tour_agenda_item__c.name as agenda_item_name, salesforce.Tour_agenda_item__c.description__c as tour_agenda_item_desc, salesforce.Tour_hotel__c.description__c as tour_hotel_desc, salesforce.Tour_hotel__c.picture_url__c as tour_hotel_pic FROM salesforce.Tour_agenda_item__c as tour_agenda_table INNER JOIN salesforce.Tour_hotel__c as tour_hotel_table ON tour_agenda_table.tour_hotel__c = tour_hotel_table.sfid ORDER BY publishDate DESC LIMIT $2');
-};
+return db.query('SELECT id, name, description__c, picture_url__c FROM salesforce.Tour_agenda_item__c INNER JOIN salesforce.Tour_hotel__c ON salesforce.Tour_agenda_item__c.tour_hotel__c = salesforce.Tour_hotel__c.sfid ORDER BY publishDate DESC LIMIT $2');
 
 function findById(id) {
     return db.query('SELECT id, name, description__c FROM salesforce.Tour_agenda_item__c');
