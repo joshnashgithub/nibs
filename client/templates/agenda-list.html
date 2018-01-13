@@ -17,8 +17,9 @@
                 </div>
 
                 <div class="item item-body">
-                    <img ng-src="{{agenda.picture_url__c}}">
-                      <p>{{agenda.hotel_desc}}</p>
+                    <img ng-if="agenda.picture_url__c" ng-src="{{agenda.picture_url__c}}">
+                      <p>{{agenda.description__c}}</p>
+                      <p><a ng-if="agenda.link_url__c" ng-href="{{agenda.picture_url__c}}"</p>
                 </div>
 
         </div>
