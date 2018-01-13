@@ -7,7 +7,7 @@ function findAll(limit) {
 };
 
 function findById(id) {
-    return db.query('SELECT id, name, description__c, picture_url__c FROM salesforce.Tour_agenda_item__c');
+    return db.query('SELECT id, name, description__c FROM salesforce.Tour_agenda_item__c');
 };
 
 function getAll(req, res, next) {
