@@ -13,7 +13,7 @@
 
         <div ng-repeat="agenda in agenda" class="list card">
                 <div class="item">
-                    <h2>{{agenda.date_time__c | date:'dddd, mmmm dS, yyyy, h:MM TT'}}</h2>
+                    <h2>{{agenda.date_time__c | date:'MM/dd/yyyy 'at' h:mma'}}</h2>
                     <p>{{agenda.name}}</p>
                 </div>
 
