@@ -7,7 +7,7 @@ function findAll(limit) {
 };
 
 function findById(id) {
-    return db.query('SELECT Tour_agenda_item__c.id, Tour_agenda_item__c.name, Tour_agenda_item__c.description__c, Tour_hotel__c.description__c, Tour_hotel__c.picture_url__c FROM salesforce.Tour_agenda_item__c as tour_agenda_table INNER JOIN salesforce.Tour_hotel__c ON salesforce.Tour_hotel__c.sfid = tour_agenda_table.tour_hotel__c');
+    return db.query('SELECT Tour_agenda_item__c.id, Tour_agenda_item__c.name, Tour_agenda_item__c.description__c, Tour_hotel__c.description__c, Tour_hotel__c.picture_url__c FROM salesforce.Tour_agenda_item__c INNER JOIN salesforce.Tour_hotel__c ON salesforce.Tour_hotel__c.sfid = salesforce.Tour_agenda_item__c.tour_hotel__c');
 };
 
 function getAll(req, res, next) {
