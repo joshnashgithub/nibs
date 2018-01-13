@@ -13,13 +13,14 @@
 
         <div ng-repeat="agenda in agenda" class="list card">
                 <div class="item">
-                    <h2>{{agenda.date_time__c | date:'medium'}}</h2>
+                    <h2>{{agenda.date_time__c | date:'dddd, mmmm dS, yyyy, h:MM TT'}}</h2>
+                    <p>{{agenda.name}}</p>
                 </div>
 
                 <div class="item item-body">
                     <img ng-if="agenda.picture_url__c" ng-src="{{agenda.picture_url__c}}">
-                    <p><h3>{{agenda.name}}</h3><br>{{agenda.description__c}}</p>
-                    <p><a href="{{agenda.link_url__c}}"/>Menu</a></p>
+                    <p>{{agenda.description__c}}</p>
+                    <p><a href="{{agenda.link_url__c}}"/>{{agenda.link_url__c}}</a></p>
                 </div>
 
         </div>
