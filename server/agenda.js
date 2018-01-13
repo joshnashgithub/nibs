@@ -7,8 +7,12 @@ function findAll(limit) {
 };
 
 function findById(id) {
-    return db.query('SELECT Tour_agenda_item__c.id, Tour_agenda_item__c.name, Tour_agenda_item__c.description__c as agenda_item_desc, Tour_hotel__c.description__c as hotel_desc, Tour_hotel__c.picture_url__c FROM salesforce.Tour_agenda_item__c INNER JOIN salesforce.Tour_hotel__c ON salesforce.Tour_hotel__c.sfid = salesforce.Tour_agenda_item__c.tour_hotel__c');
+    return db.query('SELECT id, name, description, picture_url, link_url FROM salesforce.Tour_agenda_item__c');
 };
+    
+/*function findById(id) {
+    return db.query('SELECT Tour_agenda_item__c.id, Tour_agenda_item__c.name, Tour_agenda_item__c.description__c as agenda_item_desc, Tour_hotel__c.description__c as hotel_desc, Tour_hotel__c.picture_url__c FROM salesforce.Tour_agenda_item__c INNER JOIN salesforce.Tour_hotel__c ON salesforce.Tour_hotel__c.sfid = salesforce.Tour_agenda_item__c.tour_hotel__c');
+};*/
 
 function getAll(req, res, next) {
     findAll(20)
