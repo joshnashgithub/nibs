@@ -13,12 +13,12 @@ hi josh
 
         <div ng-repeat="agenda in agenda" class="list card">
                 <div class="item">
-                    <h2>{{agenda.name}}</h2>
+                    <h2>{{agenda.agenda_item_name}}</h2>
                 </div>
 
                 <div class="item item-body">
-                    <img ng-src="{{agenda.Tour_hotel__c.picture_url__c}}">
-                      <p>{{agenda.description__c}}</p>
+                    <img ng-src="{{agenda.tour_hotel_pic}}">
+                      <p>{{agenda.tour_hotel_desc}}</p>
                 </div>
 
         </div>
