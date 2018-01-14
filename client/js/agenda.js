@@ -1,4 +1,4 @@
-angular.module('nibs.agenda', ['openfb', 'nibs.status', 'nibs.activity', 'nibs.wishlist'])
+angular.module('nibs.agenda', [])
 
     .config(function ($stateProvider) {
 
@@ -25,7 +25,7 @@ angular.module('nibs.agenda', ['openfb', 'nibs.status', 'nibs.activity', 'nibs.w
         };
     })
 
-    .controller('AgendaListCtrl', function ($scope, Agenda, OpenFB) {
+    .controller('AgendaListCtrl', function ($scope, Agenda) {
 
         Agenda.all().success(function(agenda) {
             $scope.agenda = agenda;
