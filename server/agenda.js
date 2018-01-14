@@ -1,6 +1,12 @@
 var db = require('./pghelper'),
     winston = require('winston');
 
+/**
+ * Get the user's wish list
+ * @param req
+ * @param res
+ * @param next
+ */
 function getItems(req, res, next) {
 
     var userId = req.userId;
