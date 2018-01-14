@@ -12,7 +12,7 @@ function getItems(req, res, next) {
     var userId = req.userId;
     console.log("Josh user id is:" + userId);
 
-    db.query("SELECT Tour_agenda_item__c.name, Date_Time__c, description__c, picture_url__c, link_url__c, Contact.id FROM salesforce.Tour_agenda_item__c, salesforce.Contact, salesforce.Tour__c WHERE salesforce.Contact.tour__c = salesforce.Tour_agenda_item__c.tour__c AND userId=$1', [userId], true)")
+    db.query("SELECT Tour_agenda_item__c.name, Date_Time__c, description__c, picture_url__c, link_url__c, Contact.id FROM salesforce.Tour_agenda_item__c, salesforce.Contact, salesforce.Tour__c WHERE salesforce.Contact.tour__c = salesforce.Tour_agenda_item__c.tour__c AND userId=$1", [userId], true)
         .then(function (agenda) {
             console.log(JSON.stringify(agenda));
             return res.send(JSON.stringify(agenda));
