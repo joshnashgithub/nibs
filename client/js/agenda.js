@@ -9,7 +9,7 @@ angular.module('nibs.agenda', ['openfb', 'nibs.status', 'nibs.activity', 'nibs.w
                 views: {
                     'menuContent' :{
                         templateUrl: "templates/agenda-list.html",
-                        controller: "AgendaDetailCtrl"
+                        controller: "AgendaListCtrl"
                     }
                 }
             })
@@ -21,9 +21,6 @@ angular.module('nibs.agenda', ['openfb', 'nibs.status', 'nibs.activity', 'nibs.w
         return {
             all: function() {
                 return $http.get($rootScope.server.url + '/agenda');
-            },
-            get: function(agendaId) {
-                return $http.get($rootScope.server.url + '/agenda/' + agendaId);
             }
         };
     })
@@ -42,11 +39,3 @@ angular.module('nibs.agenda', ['openfb', 'nibs.status', 'nibs.activity', 'nibs.w
         }
 
     })
-
-    .controller('AgendaDetailCtrl', function ($scope, $rootScope, $stateParams, $ionicPopup, Agenda) {
-
-        Agenda.get($stateParams.agendaId).success(function(agenda) {
-            $scope.agenda = agenda;
-        });
-
-    });
